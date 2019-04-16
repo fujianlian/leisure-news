@@ -5,6 +5,8 @@ Page({
      */
     topNavs: ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'],
 
+    swiperList: [],
+
     /** 
      * 当前激活的当航索引 
      */
@@ -36,6 +38,7 @@ Page({
       });
     }
   },
+
   /** 
    * swiper滑动时触发 
    * 1、prevIndex != currentIndex 表示的是用手滑动 swiper组件 
@@ -54,6 +57,7 @@ Page({
     }
     this.scrollTopNav();
   },
+
   /** 
    * 滚动顶部的导航栏 
    * 1、这个地方是大致估算的 
@@ -75,5 +79,43 @@ Page({
         scrollLeft: this.data.scrollLeft + plus
       });
     }
-  }
+  },
+
+  onLoad: function(options) {
+    this.getNewsList('gn')
+  },
+
+  /**
+   * 获取新闻列表
+   * 
+   * type 新闻类型
+   * callback 请求完成回调
+   */
+  getNewsList(type, callback) {
+    let that = this;
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: {
+        type: type
+      },
+      success(res) {
+        let result = res.data.result
+        for (let i = 0; i < result.length; i++) {
+          if (!result[i].firstImage.startsWith("http")) {
+            result[i].firstImage = "https://" + result[i].firstImage
+          }
+          if (result[i].firstImage === "") {
+            result[i].firstImage = "../../images/placeholder.png"
+          }
+          result[i].time = result[i].date.substring(11, 16)
+        }
+        that.setData({
+          swiperList: result
+        })
+      },
+      complete: () => {
+        callback && callback()
+      }
+    })
+  },
 })

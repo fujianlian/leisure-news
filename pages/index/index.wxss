@@ -7,12 +7,11 @@
 .top-nav-wrapper {
   width: 100%;
   background-color: #63b59b;
-  height: 80rpx;
 }
 
 .tab-item {
   display: inline-block;
-  margin: 10rpx 22rpx;
+  margin: 12rpx 25rpx;
 }
 
 .tab-item.active {
@@ -30,5 +29,49 @@
 
 .swiper-wrapper {
   flex: 1;
-  overflow: scroll;
+}
+
+.swiper-items {
+  height: 160rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+  margin: 0 30rpx;
+  display: flex;
+}
+
+.swiper-item-image {
+  width: 180rpx;
+  height: 120rpx;
+}
+
+.swiper-item-texts {
+  position: relative;
+  height: 120rpx;
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.swiper-item-title {
+  opacity: 0.8;
+  top: 0rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  line-clamp: 2;
+  overflow: hidden;
+  height: 80rpx;
+  text-overflow: ellipsis;
+}
+
+.swiper-item-date-wrapper {
+  position: absolute;
+  display: flex;
+  bottom: 0rpx;
+}
+
+.swiper-item-date {
+  opacity: 0.5;
+  margin-top: 5rpx;
+  font-size: 24rpx;
+  margin-right: 15rpx;
+  line-height: 28rpx;
 }
