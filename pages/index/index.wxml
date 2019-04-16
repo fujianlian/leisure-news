@@ -9,8 +9,8 @@
   <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
     <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
       <swiper-item style="overflow: scroll">
-          <view class="swiper-items" wx:for="{{swiperList}}" wx:key="futureList">
-            <view class="swiper-item-texts">
+          <view class="swiper-items" wx:for="{{newsList}}" wx:key="newsList" id="{{item.id}}" bindtap='goDetail' >
+            <view class="swiper-item-texts" >
               <view class="swiper-item-title">{{item.title}}</view>
               <view class='swiper-item-date-wrapper'>
                 <view wx:if="{{item.source!==''}}" class="swiper-item-date">{{item.source}}</view>

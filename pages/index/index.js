@@ -5,7 +5,7 @@ Page({
      */
     topNavs: ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'],
 
-    swiperList: [],
+    newsList: [],
 
     /** 
      * 当前激活的当航索引 
@@ -110,12 +110,21 @@ Page({
           result[i].time = result[i].date.substring(11, 16)
         }
         that.setData({
-          swiperList: result
+          newsList: result
         })
       },
       complete: () => {
         callback && callback()
       }
+    })
+  },
+
+  /**
+   * 点击跳转详情页
+   */
+  goDetail(event) {
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + event.currentTarget.id
     })
   },
 })
