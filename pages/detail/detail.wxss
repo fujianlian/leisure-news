@@ -1,11 +1,10 @@
 .container {
-  padding: 0 30rpx;
+  padding: 40rpx 30rpx;
 }
 
 .title {
   font-size: 46rpx;
   line-height: 64.5rpx;
-  margin-top: 40rpx;
 }
 
 .source-date-wrapper {
@@ -32,10 +31,10 @@
   font-size: 36rpx;
   line-height: 50.5rpx;
   opacity: 0.6;
-  margin-bottom: 40rpx;
+  margin-top: 40rpx;
 }
 
 .content-image {
   width: 100vw;
-  margin-bottom: 40rpx;
+  margin-top: 40rpx;
 }

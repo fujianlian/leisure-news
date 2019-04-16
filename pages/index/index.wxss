@@ -27,6 +27,43 @@
   opacity: 0.8;
 }
 
+.image-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 460rpx;
+}
+
+.image-bac {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.image-show {
+  margin: 30rpx;
+  height: 400rpx;
+  width: 690rpx;
+  border-radius: 10rpx;
+  z-index: 1;
+}
+
+.image-text {
+  position: absolute;
+  padding: 8rpx 12rpx 8rpx 20rpx;
+  top: 30rpx;
+  right: 30rpx;
+  font-size: 24rpx;
+  border-top-right-radius: 10rpx;
+  border-bottom-left-radius: 20rpx;
+  z-index: 0;
+  color: white;
+  background: rgba(248, 115, 106, 0.7)
+}
+
 .swiper-wrapper {
   flex: 1;
 }
