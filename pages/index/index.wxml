@@ -1,0 +1,16 @@
+<view class="tab-wrapper">
+  <scroll-view scroll-x="{{true}}" class='top-nav-wrapper' scroll-left="{{scrollLeft}}">
+    <block wx:for="{{topNavs}}" wx:key='{{topNavs}}'>
+      <view class='tab-item {{currentActiveNavIndex == index ? "active":"unactive"}}' data-current-index='{{index}}' bindtap='topNavChange'>
+        {{item}}
+      </view>
+    </block>
+  </scroll-view>
+  <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
+    <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
+      <swiper-item>
+        <view>{{item}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

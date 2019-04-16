@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#63B59B",
+    "navigationBarTitleText": "闲读 ∙ 资讯",
+    "navigationBarTextStyle": "white"
+  }
+}
