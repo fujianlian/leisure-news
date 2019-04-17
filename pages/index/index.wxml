@@ -14,7 +14,7 @@
       <swiper-item style="overflow: scroll">
         <view wx:if="{{newsList[index].length>0}}" class="image-wrapper">
           <image class="image-bac" src="../../images/background.png"></image>
-          <view class="image-show" id="{{newsList[index][0].id}}" bindtap='goDetail'>
+          <view class="image-show" data-index="{{index}}" bindtap='goDetail'>
             <image class="image-url" src="{{newsList[index][0].firstImage}}"></image>
             <view class="image-text">热门</view>
             <view class='image-time-wrapper'>
@@ -24,7 +24,7 @@
             </view>
           </view>
         </view>
-        <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" id="{{item.id}}" bindtap='goDetail'>
+        <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" data-index="{{index}}" bindtap='goDetail'>
           <view class="swiper-item-texts">
             <view class="swiper-item-title">{{item.title}}</view>
             <view class='swiper-item-date-wrapper'>

@@ -1,5 +1,10 @@
+.swiper-wrapper {
+  height: 100vh;
+}
+
 .container {
   padding: 40rpx 30rpx;
+  overflow: scroll;
 }
 
 .title {
@@ -18,7 +23,7 @@
 }
 
 .source-margin {
-  margin-right: 15rpx;
+  margin-right: 25rpx;
 }
 
 .source-text {
@@ -35,6 +40,6 @@
 }
 
 .content-image {
-  width: 100vw;
+  width: 690rpx;
   margin-top: 40rpx;
 }

@@ -12,6 +12,9 @@ Page({
      */
     types: ['gn', 'gj', 'cj', 'yl', 'js', 'ty', 'other'],
 
+    /**
+     * 页面数据
+     */
     newsList: [
       [],
       [],
@@ -159,8 +162,10 @@ Page({
    * 点击跳转详情页
    */
   goDetail(event) {
+    let index = event.currentTarget.dataset.index
+    let list = JSON.stringify(this.data.newsList[this.data.currentActiveNavIndex])
     wx.navigateTo({
-      url: '/pages/detail/detail?id=' + event.currentTarget.id
+      url: '/pages/detail/detail?index=' + index + '&list=' + list
     })
   },
 })

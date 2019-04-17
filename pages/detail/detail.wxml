@@ -1,12 +1,18 @@
-<scroll-view class='container'>
-  <view class="title">{{detailData.title}}</view>
-  <view class="source-date-wrapper">
-    <view wx:if="{{detailData.source!==''}}" class='source-margin source-text'> {{detailData.source}} </view>
-    <view class='source source-text source-margin'> {{detailData.date}} </view>
-    <view class='source-text'> {{detailData.readCount}} </view>
-  </view>
-  <view wx:for="{{contentList}}" wx:key="content">
-    <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.show}}"></image>
-    <view wx:if="{{item.type==='p'}}" class="content-p">{{item.show}}</view>
-  </view>
-</scroll-view>
+<swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentIndex}}'>
+  <block wx:for="{{detailDatas}}" wx:key='{{detailDatas}}'>
+    <swiper-item class='container'>
+    <view>
+  
+      <view class="title">{{detailDatas[index].title}}</view>
+      <view class="source-date-wrapper">
+        <view wx:if="{{detailDatas[index].source!==''}}" class='source-margin source-text'> {{detailDatas[index].source}} </view>
+        <view class='source source-text source-margin'> {{detailDatas[index].date}} </view>
+        <view class='source-text'> {{detailDatas[index].readCount}} </view>
+      </view>
+      <view wx:for="{{detailDatas[index].content}}" wx:key="content">
+        <image wx:if="{{item.type==='image'}}" class="content-image" src="{{item.show}}"></image>
+        <view wx:if="{{item.type==='p'}}" class="content-p">{{item.show}}</view>
+      </view>  </view>
+    </swiper-item>
+  </block>
+</swiper>
