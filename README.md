@@ -4,6 +4,7 @@
 
 ## 页面展示
 
-![1](./images/home.png) | ![2](./images/detail.png) |
+
+<img width="300" height="578" src="./images/home.png"/> | <img width="300" height="578" src="./images/detail.png"/> |
 | :--: | :--: |
 | 首页 | 详情页 |
