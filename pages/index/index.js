@@ -23,6 +23,53 @@ Page({
     scrollLeft: 0
   },
 
+  onLoad: function(options) {
+    this.getNewsList('gn')
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+
+  /**
+   * 获取新闻列表
+   * 
+   * type 新闻类型
+   * callback 请求完成回调
+   */
+  getNewsList(type, callback) {
+    let that = this;
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: {
+        type: type
+      },
+      success(res) {
+        let result = res.data.result
+        for (let i = 0; i < result.length; i++) {
+          if (!result[i].firstImage.startsWith("http")) {
+            result[i].firstImage = "https://" + result[i].firstImage
+          }
+          if (result[i].firstImage === "") {
+            result[i].firstImage = "../../images/placeholder.png"
+          }
+          result[i].time = result[i].date.substring(11, 16)
+        }
+        that.setData({
+          newsList: result
+        })
+      },
+      complete: () => {
+        callback && callback()
+      }
+    })
+  },
+
   /** 
    * 顶部导航改变事件，即被点击了 
    * 1、如果2次点击同一个当航，则不做处理 
@@ -79,44 +126,6 @@ Page({
         scrollLeft: this.data.scrollLeft + plus
       });
     }
-  },
-
-  onLoad: function(options) {
-    this.getNewsList('gn')
-  },
-
-  /**
-   * 获取新闻列表
-   * 
-   * type 新闻类型
-   * callback 请求完成回调
-   */
-  getNewsList(type, callback) {
-    let that = this;
-    wx.request({
-      url: 'https://test-miniprogram.com/api/news/list',
-      data: {
-        type: type
-      },
-      success(res) {
-        let result = res.data.result
-        for (let i = 0; i < result.length; i++) {
-          if (!result[i].firstImage.startsWith("http")) {
-            result[i].firstImage = "https://" + result[i].firstImage
-          }
-          if (result[i].firstImage === "") {
-            result[i].firstImage = "../../images/placeholder.png"
-          }
-          result[i].time = result[i].date.substring(11, 16)
-        }
-        that.setData({
-          newsList: result
-        })
-      },
-      complete: () => {
-        callback && callback()
-      }
-    })
   },
 
   /**
