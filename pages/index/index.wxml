@@ -1,7 +1,10 @@
 <view class="tab-wrapper">
   <scroll-view scroll-x class='top-nav-wrapper' scroll-left="{{scrollLeft}}">
     <block wx:for="{{topNavs}}" wx:key='{{topNavs}}'>
-      <view class='tab-item {{currentActiveNavIndex == index ? "active":"unactive"}}' data-current-index='{{index}}' bindtap='topNavChange'>
+      <view wx:if="{{currentActiveNavIndex === index}}" class='tab-item active' data-current-index='{{index}}' bindtap='topNavChange'>
+        {{item}}
+      </view>
+      <view wx:else class='tab-item unactive' data-current-index='{{index}}' bindtap='topNavChange'>
         {{item}}
       </view>
     </block>
