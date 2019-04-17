@@ -22,7 +22,7 @@
   font-size: 32rpx;
   line-height: 45rpx;
   height: 50rpx;
-  border-bottom: 4rpx solid rgba(255, 255, 255, 0.8)
+  border-bottom: 4rpx solid rgba(255, 255, 255, 0.8);
 }
 
 .tab-item.unactive {
@@ -50,24 +50,58 @@
 }
 
 .image-show {
-  margin: 30rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 30rpx;
   height: 360rpx;
-  width: 690rpx;
-  border-radius: 10rpx;
+  width: 692rpx;
   z-index: 1;
+}
+
+.image-url {
+  height: 360rpx;
+  width: 692rpx;
+  border-radius: 10rpx;
+  opacity: 0.9;
 }
 
 .image-text {
   position: absolute;
-  padding: 8rpx 12rpx 8rpx 20rpx;
-  top: 30rpx;
-  right: 32rpx;
+  padding: 8rpx 12rpx 8rpx 20rpx;  
+  right: 0;
+  top: 0;
   font-size: 24rpx;
   border-top-right-radius: 10rpx;
   border-bottom-left-radius: 20rpx;
   z-index: 0;
   color: white;
   background: rgba(248, 115, 106, 0.7);
+}
+
+.image-title {
+  position: absolute;
+  bottom: 40rpx;
+  color: white;
+  font-size: 30rpx;
+  width: 642rpx;
+  margin-right: 25rpx;
+  line-height: 42rpx;
+}
+
+.image-time-wrapper {
+  position: absolute;
+  display: flex;
+  bottom: 15rpx;
+  left: 25rpx;
+  font-size: 24rpx;
+}
+
+.image-time-text {
+  color: white;
+  font-size: 24rpx;
+  margin-right: 25rpx;
+  line-height: 34rpx;
+  opacity: 0.7;
 }
 
 .swiper-wrapper {
@@ -115,6 +149,6 @@
   opacity: 0.5;
   margin-top: 5rpx;
   font-size: 24rpx;
-  margin-right: 15rpx;
+  margin-right: 25rpx;
   line-height: 28rpx;
 }
