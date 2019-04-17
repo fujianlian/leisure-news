@@ -46,6 +46,15 @@ Page({
   },
 
   /**
+   * 下拉刷新
+   */
+  onPullDownRefresh: function() {
+    this.getNewsList(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
@@ -61,10 +70,11 @@ Page({
    */
   getNewsList(callback) {
     let that = this;
+    let type = this.data.types[this.data.currentActiveNavIndex]
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
-        type: this.data.types[this.data.currentActiveNavIndex]
+        type: type
       },
       success(res) {
         let result = res.data.result
@@ -76,6 +86,12 @@ Page({
             result[i].firstImage = "../../images/placeholder.png"
           }
           result[i].time = result[i].date.substring(11, 16)
+        }
+        // 防止第一张图片为白色图片
+        if (type === 'gj') {
+          let a = result[0]
+          result[0] = result[1]
+          result[1] = a
         }
         let list = that.data.newsList;
         list[that.data.currentActiveNavIndex] = result

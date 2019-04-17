@@ -14,7 +14,7 @@
 .tab-item {
   display: inline-block;
   position: relative;
-  margin: 12rpx 42rpx 20rpx 0rpx;
+  margin: 20rpx 42rpx 20rpx 0rpx;
 }
 
 .tab-item.active {
@@ -36,7 +36,7 @@
 .image-wrapper {
   position: relative;
   width: 100vw;
-  height: 420rpx;
+  height: 460rpx;
 }
 
 .image-bac {
@@ -53,13 +53,13 @@
   position: absolute;
   left: 30rpx;
   top: 30rpx;
-  height: 360rpx;
+  height: 400rpx;
   width: 692rpx;
   z-index: 1;
 }
 
 .image-url {
-  height: 360rpx;
+  height: 400rpx;
   width: 692rpx;
   border-radius: 10rpx;
   opacity: 0.9;
