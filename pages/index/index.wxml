@@ -12,19 +12,19 @@
   <swiper bindchange="swiperChange" class="swiper-wrapper" current='{{currentActiveNavIndex}}'>
     <block wx:for="{{topNavs}}" wx:key='{{bottomNavs}}'>
       <swiper-item style="overflow: scroll">
-        <view wx:if="{{newsList.length>0}}" class="image-wrapper">
+        <view wx:if="{{newsList[index].length>0}}" class="image-wrapper">
           <image class="image-bac" src="../../images/background.png"></image>
-          <view class="image-show"  id="{{newsList[0].id}}" bindtap='goDetail'>
-            <image class="image-url" src="{{newsList[0].firstImage}}"></image>
+          <view class="image-show" id="{{newsList[index][0].id}}" bindtap='goDetail'>
+            <image class="image-url" src="{{newsList[index][0].firstImage}}"></image>
             <view class="image-text">热门</view>
             <view class='image-time-wrapper'>
-              <view wx:if="{{newsList[0].source!==''}}" class="image-time-text">{{newsList[0].source}}</view>
-              <view class="image-time-text">{{newsList[0].time}}</view>
-              <view class="image-title">{{newsList[0].title}}</view>
+              <view wx:if="{{newsList[index][0].source!==''}}" class="image-time-text">{{newsList[index][0].source}}</view>
+              <view class="image-time-text">{{newsList[index][0].time}}</view>
+              <view class="image-title">{{newsList[index][0].title}}</view>
             </view>
           </view>
         </view>
-        <view class="swiper-items" wx:for="{{newsList}}" wx:key="newsList" wx:if="{{index!==0}}" id="{{item.id}}" bindtap='goDetail'>
+        <view class="swiper-items" wx:for="{{newsList[index]}}" wx:key="newsList" wx:if="{{index!==0}}" id="{{item.id}}" bindtap='goDetail'>
           <view class="swiper-item-texts">
             <view class="swiper-item-title">{{item.title}}</view>
             <view class='swiper-item-date-wrapper'>

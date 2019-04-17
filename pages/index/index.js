@@ -1,3 +1,5 @@
+const self = this
+
 Page({
   data: {
     /** 
@@ -5,7 +7,20 @@ Page({
      */
     topNavs: ['国内', '国际', '财经', '娱乐', '军事', '体育', '其他'],
 
-    newsList: [],
+    /** 
+     * 新闻类型
+     */
+    types: ['gn', 'gj', 'cj', 'yl', 'js', 'ty', 'other'],
+
+    newsList: [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
 
     /** 
      * 当前激活的当航索引 
@@ -24,7 +39,7 @@ Page({
   },
 
   onLoad: function(options) {
-    this.getNewsList('gn')
+    this.getNewsList()
   },
 
   /**
@@ -39,15 +54,14 @@ Page({
   /**
    * 获取新闻列表
    * 
-   * type 新闻类型
    * callback 请求完成回调
    */
-  getNewsList(type, callback) {
+  getNewsList(callback) {
     let that = this;
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
-        type: type
+        type: this.data.types[this.data.currentActiveNavIndex]
       },
       success(res) {
         let result = res.data.result
@@ -60,8 +74,10 @@ Page({
           }
           result[i].time = result[i].date.substring(11, 16)
         }
+        let list = that.data.newsList;
+        list[that.data.currentActiveNavIndex] = result
         that.setData({
-          newsList: result
+          newsList: list
         })
       },
       complete: () => {
@@ -83,6 +99,7 @@ Page({
         currentActiveNavIndex: nextActiveIndex,
         prevActiveNavIndex: currentIndex
       });
+      this.judgeRequest()
     }
   },
 
@@ -100,9 +117,10 @@ Page({
     if (prevIndex != currentIndex) {
       this.setData({
         prevActiveNavIndex: prevIndex
-      });
+      })
     }
-    this.scrollTopNav();
+    this.scrollTopNav()
+    this.judgeRequest()
   },
 
   /** 
@@ -125,6 +143,15 @@ Page({
       this.setData({
         scrollLeft: this.data.scrollLeft + plus
       });
+    }
+  },
+
+  /**
+   * 判断页面切换是否需要请求数据
+   */
+  judgeRequest() {
+    if (this.data.newsList[this.data.currentActiveNavIndex].length === 0) {
+      this.getNewsList()
     }
   },
 
