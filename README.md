@@ -2,7 +2,7 @@
 
 优达学城新闻列表实战项目，界面效果实现类似市场上大多数新闻类app页面，适合小程序初学者，需要具备基础的**JavaScript**和**CSS**知识
 
-## install
+## 项目运行
 
 1. 安装[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 
@@ -17,3 +17,13 @@
 <img width="300" height="578" src="./images/home.png"/> | <img width="300" height="578" src="./images/detail.png"/> |
 | :--: | :--: |
 | 首页 | 详情页 |
+
+## 进阶学习项目
+
+* [Mall(商城类 项目实战)](https://github.com/fujianlian/mall)
+
+* [侃影评(影评类 项目实战)](https://github.com/fujianlian/movie)
+
+## 后记
+
+如果你觉得对你有帮助的话，顺手 **点个Star**，笔者需要您的支持
